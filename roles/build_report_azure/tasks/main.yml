@@ -19,7 +19,7 @@
 
 - name: Set nis_enabled flag on and keep it persistent across reboots
   become: true
-  seboolean:
+  ansible.posix.seboolean:
     name: nis_enabled
     state: true
     persistent: true
