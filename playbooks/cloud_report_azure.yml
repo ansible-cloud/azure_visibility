@@ -1,17 +1,16 @@
 ---
-- name: retrieve info 
+- name: Retrieve info
   hosts: localhost
   connection: local
   tasks:
-    - name: load retrieve info role
-      include_role:
+    - name: Load retrieve info role
+      ansible.builtin.include_role:
         name: "../roles/retrieve_info_azure"
 
-- name: build report with facts
-  hosts: ansible-1
+- name: Build report with facts
+  hosts: "{{ report_server | default('ansible-1') }}"
   gather_facts: true
   tasks:
-
-    - name: build a report
-      include_role:
+    - name: Build a report
+      ansible.builtin.include_role:
         name: "../roles/build_report_azure"

@@ -1,18 +1,18 @@
 ---
-- name: retrieve hosts with your_tags filter
+- name: Retrieve hosts with your_tags filter
   hosts: localhost
   connection: local
   gather_facts: false
   tasks:
-    - name: retrieve vms from your_location
+    - name: Retrieve vms from your_location
       azure.azcollection.azure_rm_virtualmachine_info:
       register: retrieved_info
 
-    - name: print retrieved_info
+    - name: Print retrieved_info
       ansible.builtin.debug:
         msg: "{{ retrieved_info }}"
 
-    - name: print tags
+    - name: Print tags
       ansible.builtin.debug:
         msg:
           - name: "{{ item.name }}"
