@@ -12,23 +12,23 @@
     api_version: "2020-01-01"
   register: all_regions
 
-- name: print var all_regions
-  debug:
+- name: Print var all_regions
+  ansible.builtin.debug:
     msg: "{{ all_regions }}"
 
-- name: get all networks
+- name: Get all networks
   azure.azcollection.azure_rm_virtualnetwork_info:
   register: azure_networks
 
-- name: print azure_networks
+- name: Print azure_networks
   ansible.builtin.debug:
     msg: "{{ azure_networks }}"
 
-- name: get all vms
+- name: Get all vms
   azure.azcollection.azure_rm_virtualmachine_info:
   register: azure_vms
 
-- name: print azure_vms
+- name: Print azure_vms
   ansible.builtin.debug:
     msg: "{{ azure_vms }}"
 
@@ -36,6 +36,6 @@
   azure_rm_networkinterface_info:
   register: network_interfaces
 
-- name: print azure_vms
+- name: Print azure_vms
   ansible.builtin.debug:
     msg: "{{ network_interfaces }}"

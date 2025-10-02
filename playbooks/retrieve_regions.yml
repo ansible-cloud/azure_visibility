@@ -1,5 +1,5 @@
 ---
-- name: retrieve regions 
+- name: Retrieve regions 
   hosts: localhost
   connection: local
   gather_facts: false
@@ -10,6 +10,6 @@
         api_version: "2020-01-01"
       register: all_regions
 
-    - name: print var all_regions
+    - name: Print var all_regions
       ansible.builtin.debug:
         msg: "{{ all_regions }}"
