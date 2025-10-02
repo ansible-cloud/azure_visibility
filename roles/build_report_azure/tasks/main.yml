@@ -3,6 +3,12 @@
   ansible.builtin.debug:
     var: hostvars["localhost"]
 
+- name: Ensure sudo and Python are installed (RHEL)
+  ansible.builtin.raw: sudo dnf -y install sudo python3
+  args:
+    creates: /usr/bin/python3
+  when: ansible_os_family == "RedHat"
+
 - name: Install apache
   become: true
   ansible.builtin.dnf:
