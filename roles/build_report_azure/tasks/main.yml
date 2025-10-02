@@ -8,6 +8,7 @@
   args:
     creates: /usr/bin/python3
   when: ansible_os_family == "RedHat"
+  delegate_to: "{{ report_server | default('ansible-1') }}"
 
 - name: Install apache
   become: true
